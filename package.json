@@ -1,0 +1,16 @@
+{
+  "name": "@mendix/pure-js-extensin",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Extension for Mendix Studio Pro written in Pure JS",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build --config vite.config.js"
+  },
+  "dependencies": {
+    "@mendix/extensions-api": "^0.1.1-mendix.10.21.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
