@@ -46,7 +46,7 @@ await esbuild.build({
   entryPoints: [
     {
         in: 'src/main/index.js',
-        out: `index`
+        out: `main`
     },
     {
         in: 'src/ui/tab.js',
