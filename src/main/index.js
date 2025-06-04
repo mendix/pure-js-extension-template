@@ -19,7 +19,7 @@ class Main {
                         {
                             title: "Pure JS tab",
                             icon: jsIcon
-                        }, 
+                        },
                         {
                             componentName: "extension/pureJsExtension", 
                             uiEntrypoint: "tab"

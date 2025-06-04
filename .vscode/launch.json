@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch StudioPro with debugger attached",
+            "type": "msedge",
+            "useWebView": true,
+            "runtimeExecutable": "${config:studioProExecutablePath}",
+            "runtimeArgs": ["--enable-extension-development", "--enable-web-extensions", "--webview-remote-debugging", "--enable-dev-mode", "--force-open-most-recent"],
+            "request": "launch",
+            "webRoot": "${workspaceFolder}/dist/pureJsExtension"
+        }
+    ]
+}
