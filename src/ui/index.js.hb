@@ -4,7 +4,7 @@ const studioProHeader = document.createElement('h1')
 studioProHeader.textContent = 'Mendix Studio Pro Extension';
 
 const helloParagraph = document.createElement('p');
-helloParagraph.textContent = 'Hello from a pure JS extension!';
+helloParagraph.textContent = 'Hello from {{extensionName}}!';
 
 wrapper.append(studioProHeader, helloParagraph);
 

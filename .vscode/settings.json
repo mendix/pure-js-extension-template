@@ -1,4 +1,0 @@
-{
-    "studioProExecutablePath": "C:\\Users\\petar.vukmirovic\\source\\repos\\appdev\\modeler\\Mendix.StudioPro.Windows\\bin\\Debug\\studiopro.exe",
-    "studioProDebuggingArguments":  ["--enable-extension-development", "--enable-web-extensions", "--webview-remote-debugging", "--enable-dev-mode", "--force-open-most-recent"]
-}

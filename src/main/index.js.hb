@@ -4,24 +4,25 @@ import jsIcon from "../icon/js_logo.png";
 class Main {
     async loaded() {
         await studioPro.ui.extensionsMenu.add({
-            menuId: "pureJsExtension.MainMenu",
-            caption: "Pure JS Extension",
+            menuId: "{{extensionName}}.MainMenu",
+            caption: "MyExtension Menu",
             subMenus: [
-                { menuId: "pureJsExtension.ShowMenu", caption: "Show Pure JS tab"}
+                { menuId: "{{extensionName}}.ShowMenu", caption: "Show tab"}
             ],
         });
 
+        // Open a tab when the menu item is clicked
         studioPro.ui.extensionsMenu.addEventListener(
             "menuItemActivated",
             (args) => {
-                if (args.menuId === "pureJsExtension.ShowMenu") {
+                if (args.menuId === "{{extensionName}}.ShowMenu") {
                     studioPro.ui.tabs.open(
                         {
-                            title: "Pure JS tab",
+                            title: "MyExtension tab",
                             icon: jsIcon
                         },
                         {
-                            componentName: "extension/pureJsExtension", 
+                            componentName: "extension/{{extensionName}}", 
                             uiEntrypoint: "tab"
                         }
                     )
