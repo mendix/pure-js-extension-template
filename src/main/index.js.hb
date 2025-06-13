@@ -1,5 +1,4 @@
 import { studioPro } from "@mendix/extensions-api";
-import jsIcon from "../icon/js_logo.png";
 
 class Main {
     async loaded() {
@@ -18,8 +17,7 @@ class Main {
                 if (args.menuId === "{{extensionName}}.ShowMenu") {
                     studioPro.ui.tabs.open(
                         {
-                            title: "MyExtension tab",
-                            icon: jsIcon
+                            title: "MyExtension tab"
                         },
                         {
                             componentName: "extension/{{extensionName}}", 
