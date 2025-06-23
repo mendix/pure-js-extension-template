@@ -6,7 +6,11 @@
             "type": "msedge",
             "useWebView": true,
             "runtimeExecutable": "{{studioProExecutablePath}}",
-            "runtimeArgs": ["--enable-extension-development", "--enable-web-extensions", "--enable-dev-mode"],
+{{#if (isNonEmpty applicationMprPath)}}
+            "runtimeArgs": ["{{applicationMprPath}}", "--enable-extension-development", "--enable-web-extensions"],
+{{else}}
+            "runtimeArgs": ["--enable-extension-development", "--enable-web-extensions"],
+{{/if}}
             "request": "launch",
             "webRoot": "${workspaceFolder}/dist/{{extensionName}}"
         }
