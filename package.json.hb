@@ -9,7 +9,7 @@
     "build:dev": "node build-extension.mjs --watch"
   },
   "dependencies": {
-    "@mendix/extensions-api": "^0.1.1-mendix.10.21.0"{{#if useReact}},
+    "@mendix/extensions-api": "^{{extensionApiVersion}}"{{#if useReact}},
     "react": "^18.3.1",
     "react-dom": "^18.3.1" {{/if}}
   },
