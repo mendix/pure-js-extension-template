@@ -4,6 +4,7 @@ import parseArgs from "minimist"
 
 const outDir = `dist/{{extensionName}}`
 const appDir = "{{applicationDirectory}}"
+const extensionApiVersion = "{{extensionApiVersion}}"
 
 const entryPoints = [
     {
@@ -28,7 +29,7 @@ const args = parseArgs(process.argv.slice(2))
 const buildContext = await esbuild.context({
   ...commonConfig,
   outdir: outDir,
-  plugins: [copyManifestPlugin(outDir), copyToAppPlugin(appDir, outDir)],
+  plugins: [copyManifestPlugin(outDir), copyToAppPlugin(appDir, outDir, extensionApiVersion)],
   entryPoints
 })
 
