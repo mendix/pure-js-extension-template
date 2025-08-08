@@ -1,6 +1,5 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { IComponent } from "@mendix/extensions-api";
 
 export const component = {
 {{#if (versionGraterThanOrEqual 11)}}

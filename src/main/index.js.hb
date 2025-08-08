@@ -1,7 +1,7 @@
 {{#if (versionGraterThanOrEqual 11)}}
-import { IComponent, getStudioProApi } from "@mendix/extensions-api";
+import { getStudioProApi } from "@mendix/extensions-api";
 {{else}}
-import { IComponent, studioPro } from "@mendix/extensions-api";
+import { studioPro } from "@mendix/extensions-api";
 {{/if}}
 
 export const component = {
