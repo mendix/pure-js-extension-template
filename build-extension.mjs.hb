@@ -7,7 +7,7 @@ const appDir = "{{applicationDirectory}}"
 {{#if (versionGraterThanOrEqual 11)}}
 const extensionDirectoryName = "extensions"
 {{else}}
-const extensionDirectoryName = "webextesions"
+const extensionDirectoryName = "webextensions"
 {{/if}}
 
 const entryPoints = [
