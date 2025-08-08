@@ -1,16 +1,9 @@
 import fs from "node:fs/promises"
 import { existsSync as pathExists } from "node:fs";
 
-function extractMendixVersion(version) {
-    const defaultVersion = 11;
-    const match = version.match(/mendix\.(\d+)/);
-    return match ? parseInt(match[1]) : defaultVersion;
-}
-
-async function ensureExtensionFolderExists(appDir, mendixVersion) {
-    const extensionDirName = mendixVersion >= 11 ? 'extensions' : 'webextensions';
-    if(pathExists(appDir)) {
-        const extDir = `${appDir}/${extensionDirName}`
+async function ensureExtensionDirectoryExists(appDir, extensionDirectoryName) {
+    if(appDir.trim() !== "" && pathExists(appDir)) {
+        const extDir = `${appDir}/${extensionDirectoryName}`
         if(!pathExists(extDir)) {
             await fs.mkdir(extDir)
         }
@@ -30,13 +23,12 @@ async function copyExtensionAssetsToApplication(appExtensionDirPath, outDir) {
     await fs.cp(outDir, deployedExtensionPath, {recursive:true})
 }
 
-export const copyToAppPlugin = (appDir, outDir, extensionApiVersion) => ({
+export const copyToAppPlugin = (appDir, outDir, extensionDirectoryName) => ({
     name: 'copy-to-app',
     setup(build) {
         build.onEnd(async result => {
             if (!result.errors.length) {
-                const mendixVersion = extractMendixVersion(extensionApiVersion);
-                const appExtensionDirPath = await ensureExtensionFolderExists(appDir, mendixVersion);
+                const appExtensionDirPath = await ensureExtensionDirectoryExists(appDir, extensionDirectoryName);
                 if(appExtensionDirPath) {
                     copyExtensionAssetsToApplication(appExtensionDirPath, outDir)
                 }

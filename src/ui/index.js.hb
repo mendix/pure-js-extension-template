@@ -1,12 +1,22 @@
-const wrapper = document.createElement('div')
+import { IComponent } from "@mendix/extensions-api";
 
-const studioProHeader = document.createElement('h1')
-studioProHeader.textContent = 'Mendix Studio Pro Extension';
+export const component = {
+{{#if (versionGraterThanOrEqual 11)}}
+    async loaded(componentContext) {
+{{else}}
+    async loaded() {
+{{/if}}
+        const wrapper = document.createElement('div')
 
-const helloParagraph = document.createElement('p');
-helloParagraph.textContent = 'Hello from {{extensionName}}!';
+        const studioProHeader = document.createElement('h1')
+        studioProHeader.textContent = 'Mendix Studio Pro Extension';
 
-wrapper.append(studioProHeader, helloParagraph);
+        const helloParagraph = document.createElement('p');
+        helloParagraph.textContent = 'Hello from {{extensionName}}!';
 
-const root = document.getElementById("root");
-root.append(wrapper);
+        wrapper.append(studioProHeader, helloParagraph);
+
+        const root = document.getElementById("root");
+        root.append(wrapper);
+    }
+}

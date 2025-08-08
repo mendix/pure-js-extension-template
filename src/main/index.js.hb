@@ -1,7 +1,16 @@
-import { studioPro } from "@mendix/extensions-api";
+{{#if (versionGraterThanOrEqual 11)}}
+import { IComponent, getStudioProApi } from "@mendix/extensions-api";
+{{else}}
+import { IComponent, studioPro } from "@mendix/extensions-api";
+{{/if}}
 
-class Main {
+export const component = {
+{{#if (versionGraterThanOrEqual 11)}}
+    async loaded(componentContext) {
+        const studioPro = getStudioProApi(componentContext);
+{{else}}
     async loaded() {
+{{/if}}
         await studioPro.ui.extensionsMenu.add({
             menuId: "{{extensionName}}.MainMenu",
             caption: "MyExtension Menu",
@@ -29,5 +38,3 @@ class Main {
         )
     }
 }
-
-export const component = new Main();
